@@ -1271,7 +1271,7 @@ class SGLangRollout(BaseRollout):
 
         # json_request already contains sampling_params
         # Filter only valid SamplingParams arguments
-        valid_sampling_params = {}
+        valid_sampling_params = self.sampling_params.copy()
         temp_sampling_params = SamplingParams()  # Create temporary instance to check valid attributes
         for k, v in json_request.items():
             if k not in ["messages", "model", "tools"] and hasattr(temp_sampling_params, k):
